@@ -19,9 +19,9 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/spark_dmv.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_dmv.swc" useDefaultLinkType="false"/>
-          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/airframework.swc" useDefaultLinkType="false"/>
-          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/applicationupdater_ui.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_flashflexkit.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/applicationupdater_ui.swc" useDefaultLinkType="false"/>
+          <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/air/airframework.swc" useDefaultLinkType="false"/>
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
@@ -39,10 +39,10 @@
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
   <buildTargets>
     <buildTarget androidSettingsVersion="1" buildTargetName="com.adobe.flexide.multiplatform.android.platform">
-      <airSettings airCertificatePath="C:/Users/steve/Documents/GroupCotton.p12" airTimestamp="true" version="1">
+      <multiPlatformSettings enabled="true" platformID="com.adobe.flexide.multiplatform.android.platform" version="2"/>
+      <airSettings airCertificatePath="D:/TDDOWNLOAD/GroupCotton.p12" airTimestamp="true" version="1">
         <airExcludes/>
       </airSettings>
-      <multiPlatformSettings enabled="true" platformID="com.adobe.flexide.multiplatform.android.platform" version="2"/>
       <actionScriptSettings version="1"/>
     </buildTarget>
   </buildTargets>
