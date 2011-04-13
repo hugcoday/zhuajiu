@@ -12,7 +12,7 @@
 	</fx:Metadata>
 	<fx:Script>
 		<![CDATA[
-			public var defaultData:Array = ["中",""];
+			public var defaultData:Array = ["赢","输"];
 		]]>
 	</fx:Script>
 	

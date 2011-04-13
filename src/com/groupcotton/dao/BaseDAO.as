@@ -10,7 +10,7 @@ package com.groupcotton.dao
 	{
 		public function getItem(id:int):node
 		{
-			var sql:String = "SELECT id, time, content FROM notelist WHERE id=?";
+			var sql:String = "SELECT id, time, content FROM drawlots WHERE id=?";
 			var stmt:SQLStatement = new SQLStatement();
 			stmt.sqlConnection = DatabaseHelper.sqlConnection;
 			stmt.text = sql;
@@ -30,7 +30,7 @@ package com.groupcotton.dao
 		{
 			
 			
-			 var sql:String = "SELECT * FROM notelist WHERE content  LIKE '%"+searchKey+"%' ORDER BY id desc ";
+			 var sql:String = "SELECT * FROM drawlots WHERE content  LIKE '%"+searchKey+"%' ORDER BY id desc ";
 			 var stmt:SQLStatement = new SQLStatement();
 			 stmt.sqlConnection = DatabaseHelper.sqlConnection;
 			 stmt.text = sql;
@@ -53,7 +53,7 @@ package com.groupcotton.dao
 		}
 		
 		public function getMaxID():int{
-			var sql:String = "SELECT max(id) maxid FROM notelist ";
+			var sql:String = "SELECT max(id) maxid FROM drawlots ";
 			var stmt:SQLStatement = new SQLStatement();
 			stmt.sqlConnection = DatabaseHelper.sqlConnection;
 			stmt.text = sql;
@@ -69,7 +69,7 @@ package com.groupcotton.dao
 			trace(_note.content);
 			
 			var sql:String = 
-				"INSERT INTO notelist (id, time, content) " +
+				"INSERT INTO drawlots (id, time, content) " +
 				"VALUES (?,?,?)";
 			var stmt:SQLStatement = new SQLStatement();
 			stmt.sqlConnection = DatabaseHelper.sqlConnection;
@@ -85,7 +85,7 @@ package com.groupcotton.dao
 		public function update(_note:node):void{
 			
 			var sql:String = 
-				"UPDATE notelist set time=? , content=? where id=? ";
+				"UPDATE drawlots set time=? , content=? where id=? ";
 			var stmt:SQLStatement = new SQLStatement();
 			stmt.sqlConnection = DatabaseHelper.sqlConnection;
 			stmt.text = sql;
@@ -99,7 +99,7 @@ package com.groupcotton.dao
 		
 		public function deleteNote(id:int):void{
 			var sql:String = 
-				"delete from notelist where id=?";
+				"delete from drawlots where id=?";
 			var stmt:SQLStatement = new SQLStatement();
 			stmt.sqlConnection = DatabaseHelper.sqlConnection;
 			stmt.text = sql;

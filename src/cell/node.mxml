@@ -21,7 +21,7 @@
 			<s:BitmapFill source="@Embed('assets/88_88.png')"/>
 		</s:fill>
 	</s:Rect>-->
-	
+	<s:Label id="nodeLabel"  text="222"/>
 		
 	
 </s:BorderContainer>

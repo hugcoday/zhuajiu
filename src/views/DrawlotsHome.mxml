@@ -12,11 +12,11 @@
 
 	<!--	actionBarVisible="false" -->
 	<fx:Declarations>
-	 <s:Rotate3D id="leftRightRotate180" duration="1000" 
+	 <s:Rotate3D id="leftRightRotate180" duration="800" 
 				 autoCenterTransform="true"
 				 angleYFrom="0" angleYTo="180" />
 	
-	<s:Rotate3D id="leftRightRotate360" duration="1000" 
+	<s:Rotate3D id="leftRightRotate360" duration="800" 
 					autoCenterTransform="true"
 					angleYFrom="180" angleYTo="360" />
 	
@@ -89,12 +89,13 @@
 			/* 随机结果 */
 			private function getResult():void{
 				var max:Number = DataBAK.length;
-				var label:Label = new Label();
+				//var label:Label = new Label();
 				var hitNum:Number = randRange(max);
-				label.text = DataBAK[hitNum];
+				//label.text = DataBAK[hitNum];
+				curObj.nodeLabel.text = DataBAK[hitNum]
 				DataBAK.splice(hitNum,1)
 				
-				curObj.addElement(label);
+				//curObj.addElement(label);
 			}
 			
 			/* 初始化 增加节点 内容 */
@@ -103,10 +104,10 @@
 				img.source="assets/flag_red.png"; */
 				//curObj.addElement(img);
 				
-				var label:Label = new Label();
-				label.text = txt;
-				obj.addElement(label);
-				
+				//var label:Label = new Label();
+				//label.text = txt;
+				//obj.addElement(label);
+				obj.nodeLabel.text = txt;
 				//loader.load("assets/orange88_88.png");
 				//curObj.setStyle("backgroundImage",'assets/88_88.png');
 			}
@@ -160,7 +161,7 @@
 			
 			/* 移除子内容 */
 			private function removeall(obj:node):void{
-				obj.removeAllElements();
+				obj.nodeLabel.text="";//removeAllElements();
 			}
 			
 			/* 配置结果 */
@@ -189,7 +190,7 @@
 	</s:actionContent>
 		
 <s:VGroup verticalAlign="middle" horizontalAlign="center" width="100%" height="66%" >
-	<s:Group  id="second"   horizontalCenter="0"  height="33%">
+	<s:Group  id="second"      height="33%" >
 		<s:layout>
 			<layout:FlowLayout1/>
 		</s:layout>

@@ -13,7 +13,7 @@ public class FlowLayout1 extends LayoutBase
         // The position for the current element
         var x:Number = 0;
         var y:Number = 0;
-        trace(containerWidth);
+      
         // loop through the elements
         var layoutTarget:GroupBase = target;
         var count:int = layoutTarget.numElements;
