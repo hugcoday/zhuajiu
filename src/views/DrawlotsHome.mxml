@@ -5,7 +5,7 @@
 		title="{resourceManager.getString('mc','home.title')}" 
 		xmlns:viewStackEffects="org.efflex.mx.viewStackEffects.*" 
 	    creationComplete="init()"
-		xmlns:mylayout="mylayout.*">
+		xmlns:layout="com.groupcotton.layout.*">
 	<s:layout>
 		<s:VerticalLayout gap="10" horizontalAlign="center" />
 	</s:layout>
@@ -191,7 +191,7 @@
 <s:VGroup verticalAlign="middle" horizontalAlign="center" width="100%" height="66%" >
 	<s:Group  id="second"   horizontalCenter="0"  height="33%">
 		<s:layout>
-			<mylayout:FlowLayout1/>
+			<layout:FlowLayout1/>
 		</s:layout>
 	</s:Group>
 </s:VGroup>
