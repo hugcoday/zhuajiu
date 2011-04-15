@@ -3,7 +3,7 @@
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:mx="library://ns.adobe.com/flex/halo"
 		title="{resourceManager.getString('mc','home.config')}"
-		xmlns:dao="com.groupcotton.dao.*">
+		xmlns:dao="com.groupcotton.dao.*" actionBarVisible="false">
 	<fx:Declarations>
 		<dao:BaseDAO id="baseDAO"  />
 	</fx:Declarations>
@@ -16,6 +16,12 @@
 			}
 		]]>
 	</fx:Script>
+	<s:HGroup width="100%" horizontalAlign="center" gap="20">
+		<s:Image source="assets/operate/list_88_88.png" />
+		<s:Image source="assets/operate/save_88_88.png"  />
+	</s:HGroup>
+
+	
 	<s:Panel  title="{resourceManager.getString('mc','config.info')}"
 			 width="75%" height="75%" 
 			 horizontalCenter="0" verticalCenter="0"  backgroundAlpha="0">
