@@ -37,7 +37,7 @@
 			import spark.components.Image;
 			import spark.components.Label;
 			
-			import views.config;
+			import views.DrawLotsConfig;
 			
 		
 			
@@ -180,7 +180,7 @@
 			}
 			/* 转到配置页面 */
 			private function doConfig():void{
-				navigator.pushView(config);
+				navigator.pushView(DrawLotsConfig);
 			}
 		]]>
 	</fx:Script>
