@@ -4,7 +4,8 @@
 		xmlns:sides="view.sides.*" 
 		title="{resourceManager.getString('mc','home.title')}" 
 		xmlns:viewStackEffects="org.efflex.mx.viewStackEffects.*" 
-	    creationComplete="init()"
+	    initialize="init()"
+		xmlns:dao="com.groupcotton.dao.*" 
 		xmlns:layout="com.groupcotton.layout.*">
 	<s:layout>
 		<s:VerticalLayout gap="10" horizontalAlign="center" />
@@ -25,13 +26,16 @@
 		<s:Move    xFrom="-300" xTo="0"  duration="1000"/>
 	</s:Parallel>
 	
-	
+	<dao:BaseDAO id="nodeSrv"  />
 	
 	
 	</fx:Declarations>
 	<fx:Script>
 		<![CDATA[
-			import cell.node;
+			import cell.nodeView;
+			
+			import com.groupcotton.model.node;
+			import com.groupcotton.utils.StaticDispatcher;
 			
 			import spark.components.BorderContainer;
 			import spark.components.Image;
@@ -55,6 +59,20 @@
 			
 			/* 初始化数据 抓阄内容 */
 			public function init():void{
+				if(!this.parentApplication.isNeedLoad){
+					StaticDispatcher.addEventListener("isOpened",refresh);
+				}else{
+					initContent();
+				}
+			}
+			
+			private function refresh(event:Event):void{
+				initContent();
+			}
+			
+			public function initContent():void{
+				var curNode:node = nodeSrv.getItem(1);
+				this.parentApplication.defaultData = curNode.content.split('\n');
 				if(this.parentApplication.defaultData!=null){
 					DataBAK = new Array();
 					/* 清除所有节点 */
@@ -144,8 +162,8 @@
 			/* 节点 计数 */
 			private var i:Number = 0;
 			/* 动态增加节点 初始化 */
-			public function addNode():node{
-				var nodeObj:node = new node();
+			public function addNode():nodeView{
+				var nodeObj:nodeView = new nodeView();
 				nodeObj.id="cell_"+i;
 				second.addElement(nodeObj);
 				nodeObj.addEventListener(MouseEvent.CLICK,doPlay);
@@ -160,14 +178,14 @@
 			} 
 			
 			/* 移除子内容 */
-			private function removeall(obj:node):void{
+			private function removeall(obj:nodeView):void{
 				obj.nodeLabel.text="";//removeAllElements();
 			}
 			
 			/* 配置结果 */
 			private function afterConfig():void{
 				for(var i:Number=0;i<second.numElements;i++){
-					var cell:node =  second.getElementAt(i) as node ;
+					var cell:nodeView =  second.getElementAt(i) as nodeView ;
 					leftRightRotate180.play([cell]);
 					removeall(cell);
 				}

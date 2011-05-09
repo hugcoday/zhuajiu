@@ -55,7 +55,7 @@ package com.groupcotton.dao
 		protected static function createDatabase():void
 		{
 			var sql:String = 
-				"CREATE TABLE IF NOT EXISTS notelist ( "+
+				"CREATE TABLE IF NOT EXISTS drawlots ( "+
 				"id INTEGER PRIMARY KEY AUTOINCREMENT, " +
 				"time VARCHAR(50), " +
 				"content VARCHAR(5000)) ";
@@ -67,7 +67,7 @@ package com.groupcotton.dao
 		
 		protected static function populateDatabase():void
 		{
-			var file:File = File.applicationDirectory.resolvePath("assets/notelist.xml");
+			var file:File = File.applicationDirectory.resolvePath("assets/drawlots.xml");
 			var stream:FileStream = new FileStream();
 			stream.open(file, FileMode.READ);
 			var xml:XML = XML(stream.readUTFBytes(stream.bytesAvailable));
@@ -120,7 +120,7 @@ package com.groupcotton.dao
 		
 		protected function deleteData():void
 		{
-			var sql:String = "DELETE FROM notelist";
+			var sql:String = "DELETE FROM drawlots";
 			var stmt:SQLStatement = new SQLStatement();
 			stmt.sqlConnection = sqlConnection;
 			stmt.text = sql;

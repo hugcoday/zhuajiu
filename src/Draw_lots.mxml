@@ -2,9 +2,11 @@
 <s:MobileApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
 					 xmlns:s="library://ns.adobe.com/flex/spark" 
 					 firstView="views.DrawlotsHome"
+					 xmlns:dao="com.groupcotton.dao.*" 
+					 applicationComplete="applicationCompleteHandler(event)"
 					 >
 	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<dao:BaseDAO id="nodeSrv"  />
 	</fx:Declarations>
 	
 	<fx:Metadata>
@@ -12,7 +14,31 @@
 	</fx:Metadata>
 	<fx:Script>
 		<![CDATA[
-			public var defaultData:Array = ["赢","输"];
+			import com.groupcotton.dao.DatabaseHelper;
+			import com.groupcotton.model.node;
+			import com.groupcotton.utils.StaticDispatcher;
+			
+			import mx.events.FlexEvent;
+			
+			public  var isNeedLoad:Boolean = false;
+			
+			public var defaultData:Array = ["洗碗"];
+			
+			private function init():void{
+				var curNode:node = nodeSrv.getItem(1);
+				defaultData = curNode.content.split('\n');
+			}
+		 
+			protected function applicationCompleteHandler(event:FlexEvent):void
+			{
+				DatabaseHelper.openDatabase(File.documentsDirectory.resolvePath("drawlots.db"));
+				callLater(connOpenHandler);
+			}
+			
+			public  function connOpenHandler():void{
+				StaticDispatcher.dispatchEvent(new Event("isOpened"));
+			}
+			
 		]]>
 	</fx:Script>
 	
